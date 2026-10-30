@@ -1,6 +1,6 @@
 # void-run
 
-**VOIDRUN** is an arcade-style browser game about dodging glitches and progressing through levels. The project centers on `index.html`, which includes on-screen instructions and score and level displays. Follow the instructions on the page to get started.
+**VOIDRUN** is an arcade-style browser game about dodging glitches and progressing through levels. The entry page is `index.html`, which includes on-screen instructions and score and level displays. Follow the instructions on the page to get started.
 
 ## Play locally
 
@@ -12,46 +12,35 @@ python -m http.server 8000
 
 Then visit <http://localhost:8000>.
 
+## Troubleshooting checklist
+
+Use these as diagnostic steps, not as claims that problems are present:
+
+1. **Confirm the entry page.** Open `index.html` from the project root, or visit the project root when using the local server. If you see a directory listing or a different page, check that you opened the intended location.
+2. **Check paths before moving files.** Inspect `index.html` for local `src` and `href` references. Preserve their relative paths, and verify that each referenced file exists at that location. The supplied project-file list includes `index.html` and `README.md`, with no separate local assets listed.
+3. **Inspect browser diagnostics.** Open developer tools and review the console for JavaScript errors and the network panel for failed or blocked requests. Note the affected resource and its URL before investigating further.
+4. **Separate local files from external resources.** The page links to Inter and Space Grotesk stylesheets hosted on jsDelivr. These font requests depend on network access; if they fail or are unavailable offline, check whether the page remains legible with its fallback fonts. A font request failure is distinct from a missing local file.
+5. **Retest after changes.** After editing markup, styles, or paths, reload the page and repeat the relevant checks.
+
 ## Configuration and data handling
 
-The supplied project-file list contains `index.html` and `README.md`; it does not include a documented environment template, separate configuration file, or backend setup. The page is delivered to the browser, so anything placed in its markup or scripts is public—not a place for passwords, API keys, tokens, or other secrets.
+The supplied project-file list contains `index.html` and `README.md`; it does not include a documented environment template, separate configuration file, or backend setup. Anything placed in page markup or scripts is delivered to the browser and should be treated as public—not as a place for passwords, API keys, tokens, or other secrets.
 
-The page displays score and level values, but this README does not establish whether any game data is persisted or transmitted. Check `index.html` before describing or changing data handling, and avoid adding personal or sensitive information to game data. The page also requests Inter and Space Grotesk font stylesheets from jsDelivr; those external requests are a dependency to consider when reviewing privacy and offline behavior.
+The page displays score and level values, but the supplied information does not establish whether game data persists or is transmitted. Check `index.html` before describing or changing data handling. The jsDelivr font stylesheets are external requests to consider when reviewing privacy and offline behavior.
 
-## Browser and platform reliability checklist
+## Review checklist
 
-These are review steps, not verified results. No browser or device compatibility testing is reported here. Record findings separately, including the browser and version, device or viewport, and any issues found.
-
-- [ ] Test in current stable browsers relevant to the intended audience and this browser-based HTML project. Consider Chromium-based Chrome or Edge, Firefox, and Safari; include mobile Safari on iOS and Chrome on Android when mobile use is in scope.
-- [ ] In each browser, check that the on-screen instructions, game area, and score and level displays appear correctly. Follow the instructions to try the game interactions and observe whether the displayed values update as expected.
-- [ ] Open the developer console and review for JavaScript errors, warnings, and failed resource loads. Inspect the network panel for failed requests, unexpected status codes, or blocked resources. Record what you find; do not treat an uninvestigated message as harmless.
-- [ ] Inspect `index.html` for local `src` and `href` references. Confirm every referenced local file exists and its path resolves both when opened directly and when served from the project folder. The supplied project-file list includes `index.html` and `README.md`, but no separate local assets.
-- [ ] Review remote requests. The supplied link inventory lists jsDelivr font stylesheets for Inter (400, 600, 800) and Space Grotesk (500, 700). Confirm the references in `index.html` are intentional and load successfully when online. If a request fails or is blocked, check that fallback typography remains legible and the game remains usable.
-- [ ] Compare narrow mobile and wide desktop viewports. Check for horizontal overflow, clipped content, and instructions, game area, or displays that become difficult to see or use. If possible, repeat on actual mobile devices, not only resized desktop windows.
-- [ ] After changing markup, styles, or asset references, repeat the checks affected by the change.
-
-## Gameplay and layout review checklist
-
-These are manual checks to perform, not reported results.
+These are manual review items, not verified results. Record the browser and version, device or viewport, and findings separately.
 
 - [ ] Check the on-screen instructions, game area, and score and level displays.
-- [ ] Follow the instructions shown on the page to try the game interactions. Observe the score and level displays as you play; do not assume behavior beyond what the page describes.
-- [ ] Check that the instructions, game area, and displays remain visible and usable at narrow and wide viewport sizes.
-
-## Accessibility review checklist
-
-These are review checks, not claims of accessibility or verified results.
-
-- [ ] Use only the keyboard to reach and operate each interactive control and to play using the on-screen instructions. Check that the interaction order is understandable and keyboard use does not get trapped.
-- [ ] Check that focused controls have a clearly visible focus indicator.
-- [ ] Check that interactive elements have accessible names describing their actions and that instructions identify the input needed to play.
-- [ ] Review text and control contrast against their backgrounds, including instructions and score and level values, in relevant game states.
-- [ ] If `index.html` references images, check that informative images have useful text alternatives and decorative images are not announced as meaningful content. If there are no images, this check is not applicable.
-- [ ] If the game uses motion effects, check behavior with the operating system’s reduced-motion preference enabled and consider reducing nonessential motion.
+- [ ] Follow the instructions to try the game interactions and observe the displayed values; do not assume behavior beyond what the page describes.
+- [ ] Check that the instructions, game area, and displays remain visible and usable at narrow and wide viewport sizes, including on mobile devices when relevant.
+- [ ] Check keyboard operation, visible focus, accessible names, and contrast for controls and text.
+- [ ] If `index.html` references images or motion effects, review text alternatives for images and behavior with reduced motion enabled, as applicable.
 
 ## Personalize the page
 
-- Edit the visible title, instructions, and other page copy in `index.html`. Keep the score and level displays consistent with the instructions shown to players.
-- Inspect the existing style rules in `index.html` before changing colors, typography, or layout; no separate stylesheet is listed in the supplied project files.
-- The supplied external font links are for Inter and Space Grotesk. Keep them if those choices are intentional; otherwise update the references and check fallback typography.
-- Before moving, renaming, or removing assets, inspect `index.html` for local `href` and `src` references and confirm the assets are unused.
+- Edit the visible title, instructions, and other page copy in `index.html`; keep the score and level displays consistent with the instructions shown to players.
+- Inspect the style rules in `index.html` before changing colors, typography, or layout; no separate stylesheet is listed in the supplied project files.
+- Keep the Inter and Space Grotesk font links if those choices are intentional, or update them and check fallback typography.
+- Before moving, renaming, or removing files, inspect `index.html` for references and verify that paths still resolve.
