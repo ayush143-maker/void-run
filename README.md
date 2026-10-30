@@ -4,12 +4,10 @@
 
 ## Play locally
 
-Open `index.html` in a modern browser, or start a local server:
+Open `index.html` in a modern browser, or run a local server from the project folder:
 
-    python -m http.server 8000
+```sh
+python -m http.server 8000
+```
 
-Visit http://localhost:8000.
-
-## Working on the game
-
-Test the play area on desktop and mobile-sized screens. Keep instructions aligned with the controls and check that score and level indicators update as expected.
+Then visit http://localhost:8000. Use the on-screen instructions to get started.
