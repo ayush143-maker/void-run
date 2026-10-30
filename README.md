@@ -42,3 +42,9 @@ The supplied files establish that `index.html` is the entry page. They do not es
 - [ ] Check that the page remains usable at narrow and wide viewport sizes.
 - [ ] Review browser console and network diagnostics for errors or failed requests.
 - [ ] The page links to Inter and Space Grotesk stylesheets hosted on jsDelivr. Check that text remains legible if those external font requests are unavailable.
+
+## Final release review
+
+- Open `index.html` from the published location and confirm the page loads as expected.
+- Test with network access available and keep a sensible fallback for externally loaded resources.
+- Review the published result once on a narrow screen and once on a wider screen; treat this as a release check, not an automated test report.
