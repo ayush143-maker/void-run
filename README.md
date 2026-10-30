@@ -1,19 +1,15 @@
 # void-run
 
-A compact arcade-style web game titled VOIDRUN, built around dodging glitches and moving through levels. The page provides on-screen play instructions and a score/level display.
+**VOIDRUN** is an arcade-style browser game about dodging glitches and pushing through levels. The page presents on-screen play instructions alongside a score and level display, keeping the focus on quick movement and readable game feedback.
 
-## Run locally
+## Play locally
 
-Open index.html in a modern browser. If browser restrictions block local assets or APIs, serve the folder over HTTP.
+The project is a standalone HTML page. Open index.html in a modern browser, or start a local server:
 
-## Structure and assets
+    python -m http.server 8000
 
-`index.html` is the primary entry point. Keep linked images, audio, scripts, and styles in their existing relative locations; renaming files may break references.
+Then visit http://localhost:8000.
 
-## Preview and deployment
+## Working on the game
 
-Open the page in a modern browser. If local-file behavior is restricted, start a simple HTTP server from this folder and open the local address in your browser. For static hosting, publish the correct root folder and check asset paths after deployment.
-
-## Making changes
-
-Test the page after edits and check both phone-sized and desktop-sized viewports. Confirm that buttons and other visible interactions work in the deployed version as well as locally.
+The game is designed for a full-screen play area, so test it on both desktop and mobile-sized screens. When changing movement, collision, or level progression, keep the instructions aligned with the actual controls and verify that score and level indicators update as expected.
