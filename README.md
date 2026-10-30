@@ -1,6 +1,6 @@
 # void-run
 
-**VOIDRUN** is an arcade-style browser game about dodging glitches and progressing through levels. The page includes on-screen instructions and score and level displays. Follow the instructions shown on the page to get started.
+**VOIDRUN** is an arcade-style browser game about dodging glitches and progressing through levels. Its single HTML page, `index.html`, includes on-screen instructions and score and level displays. Follow the instructions shown on the page to get started.
 
 ## Play locally
 
