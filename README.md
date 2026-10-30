@@ -1,6 +1,6 @@
 # void-run
 
-**VOIDRUN** is an arcade-style browser game about dodging glitches and progressing through levels. Open `index.html` to view the game instructions and score and level displays; follow the on-page guidance to play.
+**VOIDRUN** is a canvas survival game about dodging pursuing glitches and pruning them with ink trails. Move to set your target; while moving during play, draw trails to cut weeds. A weed is removed when its hit points are depleted, increasing the pruned count and growing a plant at its position. Weeds pursue the player, can wind up and dash, may split when pruned, and can damage plants. Being caught ends the run.
 
 ## Play locally
 
@@ -12,12 +12,16 @@ python -m http.server 8000
 
 Then visit <http://localhost:8000>.
 
-## Files and resources
+## Controls and progression
 
-The supplied project-file list includes `index.html` and `README.md`; no separate local assets or build scripts are listed. The page links to Inter and Space Grotesk stylesheets hosted on jsDelivr, so those fonts depend on network access. Check that text remains legible if the external font requests are unavailable.
+Pointer movement sets the player’s target and, during play or a level transition, creates trail segments; releasing the pointer stops drawing. Space or Enter starts or restarts a run, as does clicking or tapping the start/game-over overlay. The HUD shows the current level, progress toward its pruning goal, and an ink meter.
 
-Before moving or renaming files, inspect `index.html` for local references and preserve or update their relative paths.
+Ink holds up to 100 units. Drawing drains 58 units per second; not drawing regenerates 32 per second. Trail segments expire after 0.75 seconds, with at most 600 segments kept. Use drawing deliberately: running out of ink limits the ability to cut weeds until it regenerates.
 
-## Publishing notes
+The first level requires pruning 8 weeds; the goal increases by 4 for each level. Meeting it advances the level, clears weeds and pending spawns, and restores up to 55 ink. The game-over screen reports the run’s pruned total, level reached, and best run.
 
-No deployment provider, deployment configuration, or separate build output is documented. For a static publication, use the project directory containing `index.html` as the published root. Preview the published page and check that it loads, then review the instructions, game area, score and level displays, and layout at narrow and wide viewport sizes. The supplied files do not establish a separate build step or deployment status.
+## Storage and browser behavior
+
+The best total is stored as `voidrun.best.v1` in localStorage. If storage access fails, the game uses an in-memory fallback, which does not survive a page reload. When the document becomes hidden during play, the game clears active weeds and pending spawns and grants 1.4 seconds of grace with a toast; it does not pause the run. Keep this behavior in mind when switching tabs.
+
+Plants, weeds, stars, trails, and effects are generated or drawn in the browser; there are no external image assets or gameplay API calls in the source. Audio is generated with the Web Audio API, and pruning or dying can trigger `navigator.vibrate` where available. Canvas scaling adapts to the viewport and caps device-pixel ratio at 3. Inter and Space Grotesk load from jsDelivr’s Fontsource CDN. No build step is documented.
