@@ -4,7 +4,7 @@
 
 ## Play and review locally
 
-Open `index.html` in a modern browser, or run a local server from the project folder:
+Open `index.html` in a browser, or run a local server from the project folder:
 
 ```sh
 python -m http.server 8000
